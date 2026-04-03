@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reknow
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
+  jpa:
+    hibernate:
+      # data definition language Tự động tạo/cập nhật table
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        # Báo Hibernate dùng cú pháp SQL của PostgreSQL
+        dialect: org.hibernate.dialect.PostgreSQLDialect
