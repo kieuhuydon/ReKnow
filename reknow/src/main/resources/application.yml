@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reknow
+    username: root
+    password: 194194
+  jpa:
+    hibernate:
+      # data definition language Tự động tạo/cập nhật table
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        # Báo Hibernate dùng cú pháp SQL của PostgreSQL
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kieuhuydon@gmail.com
+    password: diensau
+jwt:
+  secret-key: WfUn89mL5M3N5XjAUpWeHtaGJ7qLMXUq6FPiR
+  expiration: 86400000 # 1 ngày
