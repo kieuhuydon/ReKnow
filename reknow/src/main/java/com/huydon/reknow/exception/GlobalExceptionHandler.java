@@ -1,6 +1,6 @@
-package com.huydon.reknow.Exception;
+package com.huydon.reknow.exception;
 
-import com.huydon.reknow.Common.ApiResponse;
+import com.huydon.reknow.common.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package com.huydon.reknow.Exception;
+package com.huydon.reknow.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

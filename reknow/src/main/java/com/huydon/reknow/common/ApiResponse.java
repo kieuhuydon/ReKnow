@@ -1,4 +1,4 @@
-package com.huydon.reknow.Common;
+package com.huydon.reknow.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
