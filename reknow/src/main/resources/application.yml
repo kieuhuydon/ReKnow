@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/reknow
-    username: root
+    username: postgres
     password: 194194
   jpa:
     hibernate:
@@ -23,3 +23,9 @@ spring:
 jwt:
   secret-key: WfUn89mL5M3N5XjAUpWeHtaGJ7qLMXUq6FPiR
   expiration: 86400000 # 1 ngày
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui/index.html
