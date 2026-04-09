@@ -21,7 +21,7 @@ spring:
     username: kieuhuydon@gmail.com
     password: diensau
 jwt:
-  secret-key: WfUn89mL5M3N5XjAUpWeHtaGJ7qLMXUq6FPiR
+  secret-key: WfUn89mL5M3N5XjAUpWeHtaGJ7qLMXUq6FPiR1234567
   expiration: 86400000 # 1 ngày
 
 springdoc:

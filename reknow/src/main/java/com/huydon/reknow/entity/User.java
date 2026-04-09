@@ -7,8 +7,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import jakarta.persistence.Id;
-
 
 import java.time.LocalDateTime;
 
@@ -22,7 +20,12 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
+
+    /*@OneToMany (mappedBy = "user")
+    private List<Book> books;
+    không cần, chỉ cần khi gọi user.getBoooks()
+     */
 
     @Column(nullable=false)
     private String name;
