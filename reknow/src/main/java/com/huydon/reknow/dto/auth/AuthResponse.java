@@ -1,4 +1,4 @@
-package com.huydon.reknow.dto.response;
+package com.huydon.reknow.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

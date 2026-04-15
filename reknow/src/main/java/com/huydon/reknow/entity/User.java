@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     /*@OneToMany (mappedBy = "user")
     private List<Book> books;
@@ -53,4 +53,6 @@ public class User {
     @UpdateTimestamp
     @Column (nullable = false)
     private LocalDateTime updatedAt;
+
+
 }

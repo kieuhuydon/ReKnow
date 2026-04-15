@@ -1,9 +1,9 @@
 package com.huydon.reknow.controller;
 
-import com.huydon.reknow.common.ApiResponse;
-import com.huydon.reknow.dto.request.LoginRequest;
-import com.huydon.reknow.dto.request.RegisterRequest;
-import com.huydon.reknow.dto.response.AuthResponse;
+import com.huydon.reknow.common.response.ApiResponse;
+import com.huydon.reknow.dto.auth.LoginRequest;
+import com.huydon.reknow.dto.auth.RegisterRequest;
+import com.huydon.reknow.dto.auth.AuthResponse;
 import com.huydon.reknow.service.AuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

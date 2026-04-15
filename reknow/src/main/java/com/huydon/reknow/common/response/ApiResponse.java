@@ -1,4 +1,4 @@
-package com.huydon.reknow.common;
+package com.huydon.reknow.common.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +19,15 @@ public class ApiResponse<T> {
                 .success(true)
                 .message(message)
                 .data(data)
+                .build();
+
+    }
+
+    // delete, không cần data
+    public static <T> ApiResponse<T> success(String message) {
+        return ApiResponse.<T>builder()
+                .success(true)
+                .message(message)
                 .build();
 
     }

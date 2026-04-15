@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 public class Note {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY  )
-    private Long noteId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="book_id")
@@ -29,7 +29,6 @@ public class Note {
     private String content;
 
     @Builder.Default
-
     private boolean isSent = false;
 
     private LocalDateTime deletedAt;

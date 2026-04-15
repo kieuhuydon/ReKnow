@@ -1,8 +1,8 @@
 package com.huydon.reknow.service;
 
-import com.huydon.reknow.dto.request.LoginRequest;
-import com.huydon.reknow.dto.request.RegisterRequest;
-import com.huydon.reknow.dto.response.AuthResponse;
+import com.huydon.reknow.dto.auth.LoginRequest;
+import com.huydon.reknow.dto.auth.RegisterRequest;
+import com.huydon.reknow.dto.auth.AuthResponse;
 
 
 public interface AuthService {

@@ -20,7 +20,7 @@ import java.util.List;
 public class Book {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long bookId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="user_id")
