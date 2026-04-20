@@ -28,7 +28,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 
-public class BookServiceImp implements BookService {
+public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
     private final UserRepository userRepository;
     private final BookMapper bookMapper;
@@ -118,7 +118,7 @@ public class BookServiceImp implements BookService {
         currentBook.setDeletedAt(now);
         bookRepository.save(currentBook);
         // soft delte tất cả note thuộc book
-        List<Note> notes = noteRepository.findByBookAndDeletedAtIsNull(currentBook);
+        List<Note> notes = noteRepository.findAllByBookAndDeletedAtIsNull(currentBook);
         for(Note note: notes){
             note.setDeletedAt(now);
         }

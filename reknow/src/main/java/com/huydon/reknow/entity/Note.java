@@ -21,11 +21,11 @@ public class Note {
     @GeneratedValue(strategy= GenerationType.IDENTITY  )
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="book_id")
     private Book book;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition= "TEXT")
     private String content;
 
     @Builder.Default
