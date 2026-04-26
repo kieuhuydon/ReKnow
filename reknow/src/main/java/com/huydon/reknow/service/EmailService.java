@@ -42,6 +42,27 @@ public class EmailService {
         }
     }
 
+    public void sendResetPasswordEmail(String to, String resetLink){
+        try {
+            Context context = new Context();
+            context.setVariable("resetLink", resetLink);
+
+            String htmlContent = templateEngine.process("reset-pw-email", context);
+
+
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+            helper.setTo(to);
+            helper.setSubject("Reknow - Đặt lại mật khẩu");
+            helper.setText(htmlContent, true);
+
+            mailSender.send(message);
+        }catch(Exception e){
+            log.error("Failed to send reset password  email to {}. Error: {}", to, e.getMessage());
+
+        }
+    }
+
 
 
 }

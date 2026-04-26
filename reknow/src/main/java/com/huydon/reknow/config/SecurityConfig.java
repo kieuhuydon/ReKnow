@@ -23,7 +23,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) //tấn công qua cookie
                 .authorizeHttpRequests(auth-> auth
-                        .requestMatchers("/api/auth/**", "/swagger-ui/**", "/v3/api-docs/**","/swagger-ui.html","/webjars/**" ).permitAll()
+                        .requestMatchers("/api/auth/**",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/swagger-ui.html",
+                                "/webjars/**",
+                                "/api/users/forgot-password",
+                                "/api/users/reset-password").permitAll()
                         .anyRequest().authenticated()
 
                 )
