@@ -35,7 +35,7 @@ public class Reminder {
     private Type type;
 
     @Builder.Default
-    private boolean isActive = true;
+    private Boolean active = true;
 
     private LocalTime sendTime; // giờ phút
 

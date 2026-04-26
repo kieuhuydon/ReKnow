@@ -57,7 +57,7 @@ public class ReminderController {
         ReminderResponse reminder = reminderService.toggleReminder(id);
         ApiResponse<ReminderResponse> res = ApiResponse.success("Update Status reminder successfully ", reminder);
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(res);
+        return ResponseEntity.status(HttpStatus.OK).body(res);
 
     }
 

@@ -19,7 +19,13 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: kieuhuydon@gmail.com
-    password: diensau
+    password: mftg pgbr gqpo iihf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 jwt:
   secret-key: WfUn89mL5M3N5XjAUpWeHtaGJ7qLMXUq6FPiR1234567
   expiration: 86400000 # 1 ngày

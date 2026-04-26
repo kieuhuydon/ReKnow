@@ -42,4 +42,11 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
     """)
     List<Note> findNotesToDelete (@Param( "cutoffDate" ) LocalDateTime cutoffDate);
 
+    //Chon note để gửi email
+    List<Note> findByBook_UserIdAndIsSentFalseAndDeletedAtIsNull(Long userId);
+
+    List<Note> findAllByBookAndDeletedAtIsNullOrderByCreatedAtAsc(Book book);
+
+    @Query("Update Note n Set n.isSent = false where n.book.user.id = :userId")
+    void  resetIsSentByUserId(@Param("userId") Long userId);
 }

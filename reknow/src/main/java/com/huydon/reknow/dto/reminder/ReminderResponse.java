@@ -17,5 +17,5 @@ public class ReminderResponse {
     private Type type;
     private Long bookId; // dùng bookI gọn và không lộ thông tin nhạy cảm
     private LocalTime sendTime;
-    private boolean isActive;
+    private Boolean active;
 }

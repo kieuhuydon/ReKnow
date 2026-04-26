@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface ReminderRepository extends JpaRepository<Reminder, Long> {
     Optional<Reminder> findByUserId (Long userId);
 
-    List<Reminder> findByIsActiveTrue();
+    List<Reminder> findByActiveTrue();
 }

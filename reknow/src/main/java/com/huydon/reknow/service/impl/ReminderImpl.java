@@ -55,7 +55,7 @@ public class ReminderImpl implements ReminderService {
                 .user(user)
                 .book(book)
                 .type(request.getType())
-                .isActive(true)
+                .active(true)
                 .sendTime(request.getSendTime())
                 .build();
         //lastSentNoteId, lastSenAt mặc định null
@@ -77,23 +77,45 @@ public class ReminderImpl implements ReminderService {
             throw new AppException(403, "Forbidden");
         }
         // reset khi type thay đổi
-        if(request.getType() != null && !request.getType().equals(reminder.getType())){
+        if(request.getType() != null && !request.getType().equals(reminder.getType())) {
             reminder.setLastSentAt(null);
             reminder.setLastSentNoteId(null);
-            if(request.getType().equals(Type.BY_BOOK)){
-                if(request.getBookId()==null){
-                    throw new AppException(400, "BookId required for BY_BOOK type");
-                }
-                //set Book do mapper chỉ biết bookId
-                Book book = bookRepository.findByIdAndDeletedAtIsNull(request.getBookId())
-                        .orElseThrow(() -> new ResourceNotFoundException("Book not found"));
-                reminder.setBook(book);
-
-            }
         }
 
+        Type finalType = request.getType() != null ? request.getType() : reminder.getType();
+
+        if(finalType == Type.BY_BOOK){
+            Long bookId =null;
+            if(request.getBookId() != null){
+                bookId =request.getBookId();
+            }else{
+                bookId = reminder.getBook().getId();
+            }
+            // BY_BOOK bắt buộc phải có bookId
+            if(bookId == null) {
+                throw new AppException(400, "BookId is required for BY_BOOK type");
+            }
+            // Tìm book trong DB
+            Book book = bookRepository.findByIdAndDeletedAtIsNull(bookId)
+                    .orElseThrow(() -> new ResourceNotFoundException("Book not found"));
+
+            // Kiểm tra book có thuộc user hiện tại không
+            if(!book.getUser().getEmail().equals(email)) {
+                throw new AppException(403, "Forbidden");
+            }
+
+            // Set book vào reminder
+            reminder.setBook(book);
+
+
+        }else{
+            // nếu update sentAt thì mapper làm rồi
+            reminder.setBook(null);
+        }
+
+
          reminderMapper.updateReminder(request, reminder);
-        Reminder saved = reminderRepository.save(reminder);
+         Reminder saved = reminderRepository.save(reminder);
 
         return reminderMapper.toResponse(saved );
     }
@@ -139,7 +161,7 @@ public class ReminderImpl implements ReminderService {
         if(!reminder.getUser().getEmail().equals(email)){
             throw new AppException(403, "Forbidden");
         }
-        reminder.setActive(!reminder.isActive()); // !true
+        reminder.setActive(!reminder.getActive()); // !true
 
         Reminder saved = reminderRepository.save(reminder);
 
