@@ -1,5 +1,6 @@
 package com.huydon.reknow.mapper;
 
+import com.huydon.reknow.dto.admin.AdminUserResponse;
 import com.huydon.reknow.dto.user.UpdateUserRequest;
 import com.huydon.reknow.dto.user.UserResponse;
 import com.huydon.reknow.entity.User;
@@ -15,4 +16,6 @@ public interface UserMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateProfile (UpdateUserRequest req, @MappingTarget User user );
+
+    AdminUserResponse toAdminUserResponse(User user);
 }

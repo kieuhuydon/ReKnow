@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 // trả về khi register/ login thành công
 public class AuthResponse {
-    private String token;// chỉ login mới có
+    private String accessToken;// chỉ login mới có
+    private String refreshToken;
 
 }

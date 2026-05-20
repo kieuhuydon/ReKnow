@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
     private final EmailService emailService;
 
 
+
     @Override
     public UserResponse getMyProfile() {
         User user = findCurrentUser();
@@ -42,6 +43,7 @@ public class UserServiceImpl implements UserService {
     public UserResponse updateProfile(UpdateUserRequest req) {
         User user = findCurrentUser();
 
+        //cập nhật trường text bằng mapper
         userMapper.updateProfile(req, user);
 
         User savedUser = userRepository.save(user);

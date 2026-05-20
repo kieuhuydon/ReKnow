@@ -28,10 +28,16 @@ spring:
             enable: true
 jwt:
   secret-key: WfUn89mL5M3N5XjAUpWeHtaGJ7qLMXUq6FPiR1234567
-  expiration: 86400000 # 1 ngày
+  expiration: 900000 # 15 phút
+
 
 springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui/index.html
+
+cloudinary:
+  cloud-name: dnc9vxgrj
+  api-key: 763189486779814
+  api-secret: DNtPkAiy8g_Ro_THr5wIN--u_GA

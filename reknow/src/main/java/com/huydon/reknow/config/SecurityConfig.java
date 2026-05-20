@@ -30,11 +30,13 @@ public class SecurityConfig {
                                 "/webjars/**",
                                 "/api/users/forgot-password",
                                 "/api/users/reset-password").permitAll()
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
 
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        //UsernamePasswordAuthen filter mặc định truyền thông ở trước
         return http.build();
 
     }
