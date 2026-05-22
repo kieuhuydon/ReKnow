@@ -1,0 +1,21 @@
+package com.huydon.reknow.dto.reminder;
+
+import com.huydon.reknow.entity.enums.Type;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalTime;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ReminderResponse {
+    private Long id;
+    private Type type;
+    private Long bookId; // dùng bookI gọn và không lộ thông tin nhạy cảm
+    private LocalTime sendTime;
+    private Boolean active;
+}
