@@ -47,7 +47,7 @@ ReKnow giúp bạn lưu lại những ghi chú, trích dẫn hay từ sách đã
 
 **1. Clone repo**
 ```bash
-git clone https://github.com/your-username/reknow.git
+git clone https://github.com/kieuhuydon/ReKnow.git
 cd reknow
 ```
 
