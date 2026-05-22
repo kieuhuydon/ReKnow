@@ -17,6 +17,7 @@ import com.huydon.reknow.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -54,6 +55,7 @@ public class AuthServiceImpl implements AuthService {
 }
 
     @Override
+    @Transactional
     public AuthResponse login(LoginRequest req) {
         //Tìm user theo email
         User user = userRepository.findByEmail(req.getEmail())
@@ -75,6 +77,8 @@ public class AuthServiceImpl implements AuthService {
         String refreshToken = UUID.randomUUID().toString();
 
         refreshTokenRepository.deleteByUser(user);
+
+        refreshTokenRepository.flush();
 
         RefreshToken refreshTokenEntity = RefreshToken.builder()
                 .token(refreshToken)

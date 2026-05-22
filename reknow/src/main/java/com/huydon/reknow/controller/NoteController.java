@@ -57,7 +57,7 @@ public class NoteController {
             @RequestParam Long bookId, @RequestParam (required=false) String keyword, @RequestParam (defaultValue = "0") int page, @RequestParam (defaultValue = "5") int size
     ){
 
-        ApiResponse<PageResponse<NoteResponse>> notes= ApiResponse.success("Delete note successfully",this.noteService.getNotes(bookId, keyword, page, size));
+        ApiResponse<PageResponse<NoteResponse>> notes= ApiResponse.success("Get notes successfully",this.noteService.getNotes(bookId, keyword, page, size));
         return ResponseEntity.ok(notes);
     }
 }

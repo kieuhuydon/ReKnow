@@ -1,9 +1,7 @@
 package com.huydon.reknow.controller;
 
 import com.huydon.reknow.common.response.ApiResponse;
-import com.huydon.reknow.dto.auth.AuthResponse;
-import com.huydon.reknow.dto.auth.LoginRequest;
-import com.huydon.reknow.dto.auth.RegisterRequest;
+import com.huydon.reknow.dto.auth.*;
 import com.huydon.reknow.service.AuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -14,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -44,18 +40,18 @@ public class AuthController {
 
     @PostMapping("/refresh-token")
     public ResponseEntity<ApiResponse<AuthResponse>> refreshToken(
-            @RequestBody Map<String, String> req
+            @RequestBody RefreshTokenRequest req
     ){
-        String refreshToken = req.get("refreshToken");
+        String refreshToken = req.getRefreshToken();
         AuthResponse response = authService.refreshToken(refreshToken);
         return ResponseEntity.ok(ApiResponse.success("token refreshed", response));
     }
 
     @PostMapping("/logout")
     public ResponseEntity<ApiResponse<Void>> logout(
-            @RequestBody Map<String, String> req
+            @RequestBody LogoutRequest req
     ){
-        String refreshToken = req.get("refreshToken");
+        String refreshToken = req.getRefreshToken();
         authService.logout(refreshToken);
         return ResponseEntity.ok(ApiResponse.success("Logout successfully",null));
 
