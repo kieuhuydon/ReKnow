@@ -19,6 +19,7 @@ public class ReminderRequest {
 
     private Long bookId;
 
+    @io.swagger.v3.oas.annotations.media.Schema(type = "string", example = "08:00:00", description = "Format: HH:mm:ss")
     @NotNull (message = " SendTime is required ")
     private LocalTime sendTime; // giờ gửi mỗi ngày
 
